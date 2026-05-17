@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program of the Day | Gezani Elias Maluleke</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="rubber-scroll.js" defer></script>
+</head>
+<body class="program-locked">
+  <main>
+    <header class="page-hero compact">
+      <p class="eyebrow">27 December 2026</p>
+      <h1>Program of the Day</h1>
+      <p class="page-intro">Tombstone Unveiling & Memorial for Gezani Elias Maluleke</p>
+    </header>
+
+    <section class="section locked-message" id="lockedMessage">
+      <h2>Program Available On The Day</h2>
+      <p>
+        The program of the day will be live on 27 December 2026. Please return on the event date to view the order of service.
+      </p>
+      <a href="index.html" class="button">Back to Invite</a>
+    </section>
+
+    <section class="section program-content" id="programContent" aria-live="polite">
+      <h2>Order of Service</h2>
+      <div class="program-list">
+        <article class="program-item">
+          <span>08:00 AM</span>
+          <p>Guests arrive and family welcome</p>
+        </article>
+        <article class="program-item">
+          <span>08:30 AM</span>
+          <p>Opening prayer</p>
+        </article>
+        <article class="program-item">
+          <span>08:45 AM</span>
+          <p>Purpose of the day</p>
+        </article>
+        <article class="program-item">
+          <span>09:00 AM</span>
+          <p>Family tributes and memorial messages</p>
+        </article>
+        <article class="program-item">
+          <span>10:00 AM</span>
+          <p>Obituary reading</p>
+        </article>
+        <article class="program-item">
+          <span>10:30 AM</span>
+          <p>Tombstone unveiling</p>
+        </article>
+        <article class="program-item">
+          <span>11:15 AM</span>
+          <p>Vote of thanks and closing prayer</p>
+        </article>
+        <article class="program-item">
+          <span>12:00 PM</span>
+          <p>Refreshments and family fellowship</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var eventDate = "2026-12-27";
+      var parts = new Intl.DateTimeFormat("en-ZA", {
+        timeZone: "Africa/Johannesburg",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).formatToParts(new Date());
+      var dateParts = parts.reduce(function (result, part) {
+        result[part.type] = part.value;
+        return result;
+      }, {});
+      var johannesburgDate = dateParts.year + "-" + dateParts.month + "-" + dateParts.day;
+
+      if (johannesburgDate === eventDate) {
+        document.body.classList.remove("program-locked");
+        document.body.classList.add("program-live");
+      }
+    }());
+  </script>
+</body>
+</html>
