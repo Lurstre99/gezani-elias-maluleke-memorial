@@ -54,7 +54,7 @@ body.is-bouncing main {
   min-height: min(820px, calc(100svh - 36px));
   background:
     linear-gradient(90deg, rgba(255, 252, 246, .96) 0%, rgba(255, 252, 246, .86) 32%, rgba(255, 252, 246, .22) 58%, rgba(255, 252, 246, .02) 100%),
-    url("assets/hero-gezani-elias-maluleke.png") center right / cover no-repeat;
+    url("assets/hero-gezani-elias-maluleke.jpg") center right / cover no-repeat;
   border: 1px solid rgba(156, 122, 36, .26);
   border-radius: 28px;
   overflow: hidden;
@@ -344,7 +344,7 @@ article strong { color: var(--gold); }
     align-items: flex-start;
     background:
       linear-gradient(180deg, rgba(255, 252, 246, .94) 0%, rgba(255, 252, 246, .82) 46%, rgba(255, 252, 246, .16) 100%),
-      url("assets/hero-gezani-elias-maluleke.png") 68% top / auto 100% no-repeat,
+      url("assets/hero-gezani-elias-maluleke-mobile.jpg") 68% top / auto 100% no-repeat,
       linear-gradient(180deg, #f7f0e6, #efe3cf);
     border-radius: 0 0 26px 26px;
   }
