@@ -118,8 +118,39 @@ h1 {
 .nickname {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.7rem, 4.5vw, 2.65rem);
-  margin: 2px 0 18px;
+  margin: 2px 0 14px;
   color: var(--gold);
+}
+.hero-dates {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 2px auto 22px;
+  padding: 12px 18px;
+  color: #4a3921;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(156, 122, 36, .38);
+  border-bottom: 1px solid rgba(156, 122, 36, .24);
+  background: linear-gradient(90deg, transparent, rgba(255, 252, 246, .42), transparent);
+}
+.hero-dates span + span {
+  position: relative;
+}
+.hero-dates span + span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -9px;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--gold);
+  transform: translateY(-50%);
 }
 .hero-note {
   max-width: 390px;
@@ -180,8 +211,7 @@ h1 {
 .venue-link:hover {
   color: var(--gold);
 }
-.event-box span,
-.dates-grid span {
+.event-box span {
   display: block;
   color: var(--gold);
   text-transform: uppercase;
@@ -199,7 +229,6 @@ h1 {
   backdrop-filter: blur(10px);
 }
 h2 { margin: 0 0 18px; font-size: clamp(1.65rem, 3vw, 2.18rem); line-height: 1.15; text-align: center; color: #241b16; }
-.invite p { font-size: 1.18rem; text-align: center; max-width: 820px; margin: 0 auto; color: #342c26; }
 .page-actions {
   display: flex;
   justify-content: center;
@@ -241,8 +270,6 @@ h2 { margin: 0 0 18px; font-size: clamp(1.65rem, 3vw, 2.18rem); line-height: 1.1
   color: var(--muted);
   font-size: 1.16rem;
 }
-.dates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; text-align: center; }
-.dates-grid p { margin: 0; padding: 22px 16px; background: rgba(255, 253, 249, .86); border: 1px solid rgba(156, 122, 36, .18); border-radius: 18px; box-shadow: 0 10px 28px rgba(32, 26, 22, .045); }
 .message p { font-size: 1.18rem; text-align: center; max-width: 850px; margin: 0 auto; color: #342c26; }
 .obituary { max-width: 850px; margin: 0 auto; }
 .closing { font-weight: bold; text-align: center; }
@@ -285,7 +312,6 @@ article strong { color: var(--gold); }
   margin: 0;
   font-size: 1.08rem;
 }
-.contact { text-align: center; }
 .button {
   display: inline-block;
   background: linear-gradient(135deg, #171411, #3a3028);
@@ -310,7 +336,6 @@ article strong { color: var(--gold); }
 .secondary-button:hover {
   color: var(--gold);
 }
-.phone { color: var(--muted); margin-bottom: 0; }
 @media (max-width: 800px) {
   main { padding: 0 10px 28px; }
   .hero { padding-top: 10px; }
@@ -318,23 +343,25 @@ article strong { color: var(--gold); }
     min-height: 92svh;
     align-items: flex-start;
     background:
-      linear-gradient(90deg, rgba(255, 252, 246, .98) 0%, rgba(255, 252, 246, .92) 55%, rgba(255, 252, 246, .34) 100%),
-      url("assets/hero-gezani-elias-maluleke.png") 72% top / auto 100% no-repeat,
+      linear-gradient(180deg, rgba(255, 252, 246, .94) 0%, rgba(255, 252, 246, .82) 46%, rgba(255, 252, 246, .16) 100%),
+      url("assets/hero-gezani-elias-maluleke.png") 68% top / auto 100% no-repeat,
       linear-gradient(180deg, #f7f0e6, #efe3cf);
     border-radius: 0 0 26px 26px;
   }
   .hero-card::after { inset: 10px; border-radius: 0 0 18px 18px; }
   .hero-text {
-    width: min(82%, 420px);
-    padding: 30px 18px 28px;
-    text-align: left;
-    align-items: flex-start;
+    width: calc(100% - 28px);
+    max-width: 430px;
+    margin: 14px auto 0;
+    padding: 24px 16px 20px;
+    text-align: center;
+    align-items: center;
   }
   .hero-text::before,
   .hero-text::after {
     width: 70%;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   .eyebrow {
     letter-spacing: .24em;
@@ -346,7 +373,19 @@ article strong { color: var(--gold); }
     letter-spacing: .02em;
   }
   .nickname { font-size: clamp(1.55rem, 8vw, 2.2rem); margin-bottom: 12px; }
-  .hero-note { font-size: 1rem; margin: 0 0 16px; }
+  .hero-dates {
+    justify-content: center;
+    gap: 6px 17px;
+    margin: 0 auto 16px;
+    padding: 10px 12px;
+    font-size: .72rem;
+    letter-spacing: .1em;
+    background: linear-gradient(90deg, transparent, rgba(255, 252, 246, .5), transparent);
+  }
+  .hero-dates span + span::before {
+    left: -10px;
+  }
+  .hero-note { font-size: 1rem; margin: 0 auto 16px; }
   .event-box {
     padding: 12px 14px;
     border-radius: 16px;
@@ -354,9 +393,9 @@ article strong { color: var(--gold); }
   }
   .event-box p { font-size: .95rem; margin: 9px 0; }
   .hero-actions {
-    justify-content: flex-start;
+    justify-content: center;
     gap: 8px;
-    width: auto;
+    width: 100%;
   }
   .hero-link {
     min-width: 100px;
@@ -365,11 +404,36 @@ article strong { color: var(--gold); }
     font-size: .86rem;
     letter-spacing: .03em;
   }
-  .messages, .dates-grid { grid-template-columns: 1fr; }
+  .messages { grid-template-columns: 1fr; }
   .section { padding: 26px 22px; border-radius: 18px; }
-  .invite p, .message p { font-size: 1.12rem; }
+  .message p { font-size: 1.12rem; }
   .page-hero { padding: 38px 22px; }
   .program-item { grid-template-columns: 1fr; gap: 6px; }
+}
+
+@media (max-width: 420px) {
+  .hero-text {
+    width: calc(100% - 20px);
+    padding: 22px 14px 18px;
+  }
+
+  .eyebrow {
+    letter-spacing: .18em;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 12vw, 3.1rem);
+  }
+
+  .hero-dates {
+    font-size: .68rem;
+    letter-spacing: .07em;
+  }
+
+  .hero-link {
+    min-width: 92px;
+    padding: 10px 13px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
