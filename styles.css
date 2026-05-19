@@ -40,25 +40,26 @@ body::before {
   mask-image: linear-gradient(to bottom, #000, transparent 62%);
 }
 main {
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 24px 42px;
+  padding: 18px 18px 42px;
   position: relative;
   will-change: transform;
 }
 body.is-bouncing main {
   transition: transform .32s cubic-bezier(.22, 1, .36, 1);
 }
-.hero { padding: 8px 0 18px; }
+.hero { padding: 0 0 18px; }
 .hero-card {
+  min-height: min(820px, calc(100svh - 36px));
   background:
-    linear-gradient(140deg, rgba(255, 252, 246, .98), rgba(242, 230, 207, .92)),
-    var(--paper);
-  border: 1px solid rgba(156, 122, 36, .28);
-  border-radius: 30px;
+    linear-gradient(90deg, rgba(255, 252, 246, .96) 0%, rgba(255, 252, 246, .86) 32%, rgba(255, 252, 246, .22) 58%, rgba(255, 252, 246, .02) 100%),
+    url("assets/hero-gezani-elias-maluleke.png") center right / cover no-repeat;
+  border: 1px solid rgba(156, 122, 36, .26);
+  border-radius: 28px;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(320px, .96fr) minmax(360px, 1.04fr);
+  display: flex;
+  align-items: center;
   box-shadow: var(--shadow);
   position: relative;
 }
@@ -70,19 +71,9 @@ body.is-bouncing main {
   border-radius: 22px;
   pointer-events: none;
 }
-.portrait {
-  width: 100%;
-  height: 100%;
-  max-height: 860px;
-  object-fit: contain;
-  object-position: center;
-  padding: 18px;
-  background:
-    linear-gradient(180deg, rgba(255, 252, 246, .48), rgba(236, 222, 196, .56));
-  filter: saturate(.94) contrast(1.02);
-}
 .hero-text {
-  padding: 68px 54px;
+  width: min(560px, 54%);
+  padding: clamp(34px, 6vw, 72px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,12 +81,23 @@ body.is-bouncing main {
   position: relative;
   z-index: 1;
 }
+.hero-text::before,
+.hero-text::after {
+  content: "";
+  width: min(260px, 72%);
+  height: 1px;
+  margin: 0 auto 18px;
+  background: linear-gradient(90deg, transparent, rgba(156, 122, 36, .74), transparent);
+}
+.hero-text::after {
+  margin: 10px auto 0;
+}
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: .72rem;
+  letter-spacing: .34em;
+  font-size: .76rem;
   font-weight: 800;
-  color: var(--gold);
+  color: #65491a;
   margin: 0 0 16px;
 }
 h1,
@@ -104,23 +106,71 @@ h2 {
   font-weight: 500;
 }
 h1 {
-  font-size: clamp(2.45rem, 5.4vw, 4.8rem);
-  line-height: .98;
-  margin: 0 0 22px;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: .92;
+  margin: 0 0 18px;
   text-wrap: balance;
-  color: #1d1713;
+  color: #111;
+  letter-spacing: .03em;
 }
 .for { margin: 0; color: var(--muted); font-size: 1.1rem; }
 .name { font-size: clamp(1.9rem, 4vw, 3.1rem); line-height: 1.08; margin: 8px 0 0; color: #1f1814; }
-.nickname { font-family: Georgia, "Times New Roman", serif; font-size: 1.38rem; margin: 8px 0 30px; color: var(--muted); }
+.nickname {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 4.5vw, 2.65rem);
+  margin: 2px 0 18px;
+  color: var(--gold);
+}
+.hero-note {
+  max-width: 390px;
+  margin: 0 auto 22px;
+  color: #51463d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.02rem, 2vw, 1.24rem);
+  font-style: italic;
+}
 .event-box {
   border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 20px 24px;
-  background: rgba(255, 252, 246, .74);
+  border-radius: 20px;
+  padding: 14px 18px;
+  background: rgba(255, 252, 246, .7);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.86), 0 12px 34px rgba(32, 26, 22, .06);
+  backdrop-filter: blur(10px);
 }
-.event-box p { margin: 13px 0; font-size: 1.08rem; }
+.event-box p { margin: 11px 0; font-size: 1rem; }
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 116px;
+  min-height: 42px;
+  padding: 11px 20px;
+  color: #3b3027;
+  text-decoration: none;
+  letter-spacing: .04em;
+  font-size: .92rem;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 999px;
+  background: rgba(255, 252, 246, .28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .46), 0 8px 22px rgba(32, 26, 22, .06);
+  backdrop-filter: blur(10px);
+  transition: transform .2s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.hero-link:hover {
+  transform: translateY(-1px);
+  color: #8a681c;
+  background: rgba(255, 252, 246, .44);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 12px 26px rgba(32, 26, 22, .08);
+}
 .venue-link {
   color: inherit;
   text-decoration: underline;
@@ -262,11 +312,59 @@ article strong { color: var(--gold); }
 }
 .phone { color: var(--muted); margin-bottom: 0; }
 @media (max-width: 800px) {
-  main { padding: 12px; }
-  .hero-card { grid-template-columns: 1fr; }
-  .hero-card::after { inset: 12px; }
-  .portrait { max-height: none; padding: 12px; }
-  .hero-text { padding: 36px 24px 34px; }
+  main { padding: 0 10px 28px; }
+  .hero { padding-top: 10px; }
+  .hero-card {
+    min-height: 92svh;
+    align-items: flex-start;
+    background:
+      linear-gradient(90deg, rgba(255, 252, 246, .98) 0%, rgba(255, 252, 246, .92) 55%, rgba(255, 252, 246, .34) 100%),
+      url("assets/hero-gezani-elias-maluleke.png") 72% top / auto 100% no-repeat,
+      linear-gradient(180deg, #f7f0e6, #efe3cf);
+    border-radius: 0 0 26px 26px;
+  }
+  .hero-card::after { inset: 10px; border-radius: 0 0 18px 18px; }
+  .hero-text {
+    width: min(82%, 420px);
+    padding: 30px 18px 28px;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .hero-text::before,
+  .hero-text::after {
+    width: 70%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .eyebrow {
+    letter-spacing: .24em;
+    font-size: .66rem;
+  }
+  h1 {
+    font-size: clamp(2.55rem, 13vw, 3.75rem);
+    line-height: .95;
+    letter-spacing: .02em;
+  }
+  .nickname { font-size: clamp(1.55rem, 8vw, 2.2rem); margin-bottom: 12px; }
+  .hero-note { font-size: 1rem; margin: 0 0 16px; }
+  .event-box {
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255, 252, 246, .82);
+  }
+  .event-box p { font-size: .95rem; margin: 9px 0; }
+  .hero-actions {
+    justify-content: flex-start;
+    gap: 8px;
+    width: auto;
+  }
+  .hero-link {
+    min-width: 100px;
+    min-height: 40px;
+    padding: 10px 15px;
+    font-size: .86rem;
+    letter-spacing: .03em;
+  }
   .messages, .dates-grid { grid-template-columns: 1fr; }
   .section { padding: 26px 22px; border-radius: 18px; }
   .invite p, .message p { font-size: 1.12rem; }
