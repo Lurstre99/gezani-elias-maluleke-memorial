@@ -43,7 +43,7 @@
           </div>
 
           <div class="hero-actions">
-            <a href="https://wa.me/27836093420" class="hero-link">RSVP</a>
+            <button type="button" class="hero-link" id="rsvp-open">RSVP</button>
             <a href="memorial.html" class="hero-link">Memorial</a>
             <a href="program.html" class="hero-link">Program</a>
           </div>
@@ -52,5 +52,61 @@
     </section>
 
   </main>
+  <dialog class="rsvp-dialog" id="rsvp-dialog">
+    <form class="rsvp-form" id="rsvp-form">
+      <h2>RSVP</h2>
+      <p>Enter your name to prepare your RSVP message.</p>
+      <label for="rsvp-name">Your name</label>
+      <input id="rsvp-name" name="name" type="text" maxlength="80" autocomplete="name" required />
+      <p class="rsvp-warning">WhatsApp will open with a message addressed to Laster. Review it, then tap Send in WhatsApp.</p>
+      <div class="rsvp-actions">
+        <button type="button" class="dialog-button dialog-button-secondary" id="rsvp-cancel">Cancel</button>
+        <button type="submit" class="dialog-button">Continue to WhatsApp</button>
+      </div>
+    </form>
+  </dialog>
+  <script>
+    (function () {
+      var dialog = document.getElementById("rsvp-dialog");
+      var openButton = document.getElementById("rsvp-open");
+      var cancelButton = document.getElementById("rsvp-cancel");
+      var form = document.getElementById("rsvp-form");
+      var nameInput = document.getElementById("rsvp-name");
+
+      openButton.addEventListener("click", function () {
+        dialog.showModal();
+        nameInput.focus();
+      });
+
+      cancelButton.addEventListener("click", function () {
+        dialog.close();
+      });
+
+      dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) {
+          dialog.close();
+        }
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var name = nameInput.value.trim();
+
+        if (!name) {
+          nameInput.setCustomValidity("Please enter your name.");
+          nameInput.reportValidity();
+          return;
+        }
+
+        nameInput.setCustomValidity("");
+        var message = encodeURIComponent("RSVP: " + name);
+        globalThis.location.href = "https://wa.me/27836093420?text=" + message;
+      });
+
+      nameInput.addEventListener("input", function () {
+        nameInput.setCustomValidity("");
+      });
+    }());
+  </script>
 </body>
 </html>

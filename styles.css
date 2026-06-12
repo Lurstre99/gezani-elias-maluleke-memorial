@@ -178,6 +178,9 @@ h1 {
   margin-top: 22px;
 }
 .hero-link {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -210,6 +213,81 @@ h1 {
 }
 .venue-link:hover {
   color: var(--gold);
+}
+.rsvp-dialog {
+  width: min(430px, calc(100% - 32px));
+  padding: 0;
+  color: #2b241f;
+  border: 1px solid rgba(156, 122, 36, .3);
+  border-radius: 8px;
+  background: #fffdf9;
+  box-shadow: 0 24px 70px rgba(32, 26, 22, .28);
+}
+.rsvp-dialog::backdrop {
+  background: rgba(23, 20, 17, .62);
+}
+.rsvp-form {
+  display: grid;
+  gap: 14px;
+  padding: 26px;
+}
+.rsvp-form h2,
+.rsvp-form p {
+  margin: 0;
+}
+.rsvp-form h2 {
+  font-size: 1.55rem;
+}
+.rsvp-form label {
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #72571d;
+}
+.rsvp-form input {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  color: #2b241f;
+  font: inherit;
+  border: 1px solid rgba(83, 66, 48, .34);
+  border-radius: 6px;
+  background: white;
+}
+.rsvp-form input:focus {
+  outline: 3px solid rgba(156, 122, 36, .2);
+  border-color: #9c7a24;
+}
+.rsvp-warning {
+  padding: 12px;
+  font-size: .9rem;
+  line-height: 1.45;
+  border-left: 3px solid #9c7a24;
+  background: #f7f0e6;
+}
+.rsvp-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+.dialog-button {
+  min-height: 42px;
+  padding: 10px 15px;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  border: 1px solid #2b241f;
+  border-radius: 6px;
+  background: #2b241f;
+  cursor: pointer;
+}
+.dialog-button-secondary {
+  color: #2b241f;
+  border-color: rgba(83, 66, 48, .28);
+  background: transparent;
 }
 .event-box span {
   display: block;
@@ -412,6 +490,18 @@ article strong { color: var(--gold); }
 }
 
 @media (max-width: 420px) {
+  .rsvp-form {
+    padding: 22px 18px;
+  }
+
+  .rsvp-actions {
+    flex-direction: column-reverse;
+  }
+
+  .dialog-button {
+    width: 100%;
+  }
+
   .hero-text {
     width: calc(100% - 20px);
     padding: 22px 14px 18px;
